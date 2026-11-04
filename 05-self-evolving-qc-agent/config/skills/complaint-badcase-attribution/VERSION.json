@@ -1,0 +1,22 @@
+{
+  "version": "v1",
+  "history": [
+    {
+      "version": "v1",
+      "published_at": "2026-10-24",
+      "patch_summary": {
+        "patch_count": 0,
+        "causes": []
+      },
+      "evaluation": {
+        "passed": true,
+        "reason": "初始版本，直接采用人工编写的归因 Skill 作为基线",
+        "target_gain": 0.0,
+        "holdout_gain": 0.0,
+        "regression": 0.0,
+        "target_samples": 0,
+        "failed_checks": []
+      }
+    }
+  ]
+}

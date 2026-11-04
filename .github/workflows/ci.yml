@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  smoke-test:
+    name: Smoke test (offline, no API keys)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run 01 — LangGraph agent
+        run: python 01-langgraph-agent/agent.py
+
+      - name: Run 05 — self-evolving loop (default gate settings)
+        run: python 05-self-evolving-qc-agent/evolve.py
+
+      - name: Run 05 — self-evolving loop (relaxed budget)
+        run: python 05-self-evolving-qc-agent/evolve.py --regression-budget 20
+
+      - name: Verify skill patch is incremental, not a rewrite
+        run: |
+          python - <<'PY'
+          import sys
+          base = open('03-skill/SKILL.md', encoding='utf-8').read().splitlines()
+          new  = open('05-self-evolving-qc-agent/config/skills/complaint-badcase-attribution/SKILL.md',
+                      encoding='utf-8').read().splitlines()
+          # every original line must still be present
+          missing = [l for l in base if l.strip() and l not in new]
+          if missing:
+              print('FAIL: incremental patch dropped original content:')
+              for l in missing[:5]:
+                  print('  -', l)
+              sys.exit(1)
+          added = len(new) - len(base)
+          if added < 1:
+              print('FAIL: the release step added no incremental lines.')
+              sys.exit(1)
+          print(f'OK: incremental patch preserved all {len(base)} original lines, added {added}.')
+          PY

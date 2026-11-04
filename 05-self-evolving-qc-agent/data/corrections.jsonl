@@ -1,0 +1,18 @@
+{"sample_id": "BC-001", "cause": "口径混淆", "correction": "合约发展量与合约发展价值是两个口径，前者户数后者金额，不能混用", "correct_action": "分类前确认业务口径定义已加载", "reviewer": "qc-lead", "at": "2026-09-02"}
+{"sample_id": "BC-002", "cause": "口径混淆", "correction": "首呼一解率分母应为首次通话记录数，不是工单数，转派会产生多条工单", "correct_action": "指标计算前核对分母定义", "reviewer": "qc-lead", "at": "2026-09-03"}
+{"sample_id": "BC-003", "cause": "口径混淆", "correction": "随销数据含互联网渠道与实体渠道，口径不同不能直接比", "correct_action": "跨渠道对比前先确认口径范围", "reviewer": "qc-lead", "at": "2026-09-05"}
+{"sample_id": "BC-004", "cause": "口径混淆", "correction": "合约发展量口径在统计周期上区分受理量和生效量", "correct_action": "引用指标时注明是受理还是生效", "reviewer": "qc-lead", "at": "2026-09-08"}
+{"sample_id": "BC-005", "cause": "边界误判", "correction": "用户说套餐贵属于资费争议，若实际是超额用量导致则归账单错误，需调取计费明细确认", "correct_action": "语义相近但根因不同必须二次确认", "reviewer": "qc-lead", "at": "2026-09-04"}
+{"sample_id": "BC-006", "cause": "边界误判", "correction": "用户说没生效可能是未到账期也可能是系统漏推，前者属咨询后者属故障", "correct_action": "边界 case 标为待核查并给出确认话术", "reviewer": "qc-lead", "at": "2026-09-06"}
+{"sample_id": "BC-007", "cause": "边界误判", "correction": "网络慢和信号弱在用户表述中高度相似，需结合基站和工单历史判断", "correct_action": "补充 few-shot 标注边界对比", "reviewer": "qc-lead", "at": "2026-09-10"}
+{"sample_id": "BC-008", "cause": "边界误判", "correction": "投诉被拦截说态度差，实际可能是重复来电未被受理", "correct_action": "不按表面语义直接归类", "reviewer": "qc-lead", "at": "2026-09-12"}
+{"sample_id": "BC-009", "cause": "归因浅层", "correction": "只说回拨率高没有意义，要拆到是哪个流程环节导致的", "correct_action": "归因必须落到具体流程环节", "reviewer": "qc-lead", "at": "2026-09-07"}
+{"sample_id": "BC-010", "cause": "归因浅层", "correction": "问题描述是现象不是根因，需要追问为什么会这样", "correct_action": "强制追问一层", "reviewer": "qc-lead", "at": "2026-09-09"}
+{"sample_id": "BC-011", "cause": "归因浅层", "correction": "把用户不满当成根因，实际是流程设计让用户必须重复来电", "correct_action": "区分用户反应与流程设计缺陷", "reviewer": "qc-lead", "at": "2026-09-14"}
+{"sample_id": "BC-012", "cause": "结论越界", "correction": "样本量 30 条就下结论说整体趋势，统计上不成立", "correct_action": "小样本不下结论", "reviewer": "qc-lead", "at": "2026-09-11"}
+{"sample_id": "BC-013", "cause": "结论越界", "correction": "说一解率提升就一定省钱，但重复来电率可能同时涨了", "correct_action": "任何单指标结论必须附反向指标", "reviewer": "qc-lead", "at": "2026-09-13"}
+{"sample_id": "BC-014", "cause": "结论越界", "correction": "把假设当成了已验证事实", "correct_action": "区分观察与推测并分别表述", "reviewer": "qc-lead", "at": "2026-09-15"}
+{"sample_id": "BC-015", "cause": "结论越界", "correction": "相关不等于因果，不能直接说改动导致了结果变化", "correct_action": "无对照组时不做因果断言", "reviewer": "qc-lead", "at": "2026-09-16"}
+{"sample_id": "BC-016", "cause": "归因浅层", "correction": "根因写成了用户不会操作，这是把责任推给用户", "correct_action": "归因指向可改进的流程或规则", "reviewer": "qc-lead", "at": "2026-09-18"}
+{"sample_id": "BC-017", "cause": "边界误判", "correction": "同一句投诉在不同业务线归属不同类别，脱离业务线无法判定", "correct_action": "分类必须带上业务线上下文", "reviewer": "qc-lead", "at": "2026-09-19"}
+{"sample_id": "BC-018", "cause": "口径混淆", "correction": "集团口径和省份口径并存，报表间对比时没对齐", "correct_action": "跨组织对比前核对上报范围", "reviewer": "qc-lead", "at": "2026-09-20"}

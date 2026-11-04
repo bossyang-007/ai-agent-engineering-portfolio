@@ -1,0 +1,17 @@
+# Portfolio dependencies
+#
+# Only projects 01, 02 and 05 need third-party packages.
+# Project 05 runs fully offline with the standard library alone —
+# install these only if you want to run projects 01 and 02.
+
+# --- 01 LangGraph agent -----------------------------------------------------
+langgraph>=1.0,<2.0
+langchain-core>=1.0,<2.0
+
+# --- 02 MCP server ----------------------------------------------------------
+# MCP Python SDK 2.x — note: FastMCP was renamed to MCPServer in 2.0
+mcp>=2.0,<3.0
+
+# --- optional, for real LLM calls instead of the mock ------------------------
+# openai>=1.40
+# zhipuai>=2.0

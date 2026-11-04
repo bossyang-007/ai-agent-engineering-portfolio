@@ -1,0 +1,537 @@
+{
+  "_note": "评测集：三段分离。目标子集=本次修订要修的错因；留出集=同分布但提案生成时未见过（检测过拟合）；历史回归集=其它错因类型（检测代价）。",
+  "target_subset": [
+    {
+      "sample_id": "EV-口径混淆-001",
+      "cause": "口径混淆",
+      "difficulty": "medium",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-002",
+      "cause": "口径混淆",
+      "difficulty": "hard",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-003",
+      "cause": "口径混淆",
+      "difficulty": "easy",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-004",
+      "cause": "口径混淆",
+      "difficulty": "medium",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-005",
+      "cause": "口径混淆",
+      "difficulty": "hard",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-006",
+      "cause": "口径混淆",
+      "difficulty": "easy",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-007",
+      "cause": "口径混淆",
+      "difficulty": "medium",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-008",
+      "cause": "口径混淆",
+      "difficulty": "hard",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-009",
+      "cause": "口径混淆",
+      "difficulty": "easy",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-010",
+      "cause": "口径混淆",
+      "difficulty": "medium",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-011",
+      "cause": "口径混淆",
+      "difficulty": "hard",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-012",
+      "cause": "口径混淆",
+      "difficulty": "easy",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-边界误判-001",
+      "cause": "边界误判",
+      "difficulty": "medium",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-002",
+      "cause": "边界误判",
+      "difficulty": "hard",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-003",
+      "cause": "边界误判",
+      "difficulty": "easy",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-004",
+      "cause": "边界误判",
+      "difficulty": "medium",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-005",
+      "cause": "边界误判",
+      "difficulty": "hard",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-006",
+      "cause": "边界误判",
+      "difficulty": "easy",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-007",
+      "cause": "边界误判",
+      "difficulty": "medium",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-008",
+      "cause": "边界误判",
+      "difficulty": "hard",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-009",
+      "cause": "边界误判",
+      "difficulty": "easy",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-010",
+      "cause": "边界误判",
+      "difficulty": "medium",
+      "expected": "边界误判"
+    }
+  ],
+  "holdout_subset": [
+    {
+      "sample_id": "EV-口径混淆-050",
+      "cause": "口径混淆",
+      "difficulty": "hard",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-051",
+      "cause": "口径混淆",
+      "difficulty": "easy",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-052",
+      "cause": "口径混淆",
+      "difficulty": "medium",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-053",
+      "cause": "口径混淆",
+      "difficulty": "hard",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-054",
+      "cause": "口径混淆",
+      "difficulty": "easy",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-055",
+      "cause": "口径混淆",
+      "difficulty": "medium",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-056",
+      "cause": "口径混淆",
+      "difficulty": "hard",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-057",
+      "cause": "口径混淆",
+      "difficulty": "easy",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-058",
+      "cause": "口径混淆",
+      "difficulty": "medium",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-059",
+      "cause": "口径混淆",
+      "difficulty": "hard",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-060",
+      "cause": "口径混淆",
+      "difficulty": "easy",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-061",
+      "cause": "口径混淆",
+      "difficulty": "medium",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-062",
+      "cause": "口径混淆",
+      "difficulty": "hard",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-口径混淆-063",
+      "cause": "口径混淆",
+      "difficulty": "easy",
+      "expected": "口径混淆"
+    },
+    {
+      "sample_id": "EV-边界误判-050",
+      "cause": "边界误判",
+      "difficulty": "hard",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-051",
+      "cause": "边界误判",
+      "difficulty": "easy",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-052",
+      "cause": "边界误判",
+      "difficulty": "medium",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-053",
+      "cause": "边界误判",
+      "difficulty": "hard",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-054",
+      "cause": "边界误判",
+      "difficulty": "easy",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-055",
+      "cause": "边界误判",
+      "difficulty": "medium",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-056",
+      "cause": "边界误判",
+      "difficulty": "hard",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-057",
+      "cause": "边界误判",
+      "difficulty": "easy",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-058",
+      "cause": "边界误判",
+      "difficulty": "medium",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-059",
+      "cause": "边界误判",
+      "difficulty": "hard",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-060",
+      "cause": "边界误判",
+      "difficulty": "easy",
+      "expected": "边界误判"
+    },
+    {
+      "sample_id": "EV-边界误判-061",
+      "cause": "边界误判",
+      "difficulty": "medium",
+      "expected": "边界误判"
+    }
+  ],
+  "regression_subset": [
+    {
+      "sample_id": "EV-归因浅层-100",
+      "cause": "归因浅层",
+      "difficulty": "medium",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-101",
+      "cause": "归因浅层",
+      "difficulty": "hard",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-102",
+      "cause": "归因浅层",
+      "difficulty": "easy",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-103",
+      "cause": "归因浅层",
+      "difficulty": "medium",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-104",
+      "cause": "归因浅层",
+      "difficulty": "hard",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-105",
+      "cause": "归因浅层",
+      "difficulty": "easy",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-106",
+      "cause": "归因浅层",
+      "difficulty": "medium",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-107",
+      "cause": "归因浅层",
+      "difficulty": "hard",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-108",
+      "cause": "归因浅层",
+      "difficulty": "easy",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-109",
+      "cause": "归因浅层",
+      "difficulty": "medium",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-110",
+      "cause": "归因浅层",
+      "difficulty": "hard",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-111",
+      "cause": "归因浅层",
+      "difficulty": "easy",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-112",
+      "cause": "归因浅层",
+      "difficulty": "medium",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-113",
+      "cause": "归因浅层",
+      "difficulty": "hard",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-114",
+      "cause": "归因浅层",
+      "difficulty": "easy",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-115",
+      "cause": "归因浅层",
+      "difficulty": "medium",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-116",
+      "cause": "归因浅层",
+      "difficulty": "hard",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-117",
+      "cause": "归因浅层",
+      "difficulty": "easy",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-118",
+      "cause": "归因浅层",
+      "difficulty": "medium",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-归因浅层-119",
+      "cause": "归因浅层",
+      "difficulty": "hard",
+      "expected": "归因浅层"
+    },
+    {
+      "sample_id": "EV-结论越界-100",
+      "cause": "结论越界",
+      "difficulty": "medium",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-101",
+      "cause": "结论越界",
+      "difficulty": "hard",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-102",
+      "cause": "结论越界",
+      "difficulty": "easy",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-103",
+      "cause": "结论越界",
+      "difficulty": "medium",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-104",
+      "cause": "结论越界",
+      "difficulty": "hard",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-105",
+      "cause": "结论越界",
+      "difficulty": "easy",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-106",
+      "cause": "结论越界",
+      "difficulty": "medium",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-107",
+      "cause": "结论越界",
+      "difficulty": "hard",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-108",
+      "cause": "结论越界",
+      "difficulty": "easy",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-109",
+      "cause": "结论越界",
+      "difficulty": "medium",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-110",
+      "cause": "结论越界",
+      "difficulty": "hard",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-111",
+      "cause": "结论越界",
+      "difficulty": "easy",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-112",
+      "cause": "结论越界",
+      "difficulty": "medium",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-113",
+      "cause": "结论越界",
+      "difficulty": "hard",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-114",
+      "cause": "结论越界",
+      "difficulty": "easy",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-115",
+      "cause": "结论越界",
+      "difficulty": "medium",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-116",
+      "cause": "结论越界",
+      "difficulty": "hard",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-117",
+      "cause": "结论越界",
+      "difficulty": "easy",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-118",
+      "cause": "结论越界",
+      "difficulty": "medium",
+      "expected": "结论越界"
+    },
+    {
+      "sample_id": "EV-结论越界-119",
+      "cause": "结论越界",
+      "difficulty": "hard",
+      "expected": "结论越界"
+    }
+  ]
+}
