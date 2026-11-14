@@ -1,14 +1,42 @@
 # AI Agent Engineering Portfolio — From Analytics to Self-Evolving Systems
 
+[English](README.md) · [简体中文](docs/README.zh-CN.md) · [环境搭建 / 踩坑记录](docs/environment-setup.md)
+
 > From data-quality engineering to safely self-improving agents.
 > Three runnable implementations and two design documents covering LangGraph orchestration, MCP protocol layer, Skill design,
 > Spec-Driven Development, and a self-evolving agent with an admission gate.
+> **Everything runs fully offline — no API key, no cloud account, no paid service.**
 
 [![CI](https://github.com/bossyang-007/ai-agent-engineering-portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/bossyang-007/ai-agent-engineering-portfolio/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![LangGraph](https://img.shields.io/badge/LangGraph-1.x-green.svg)](https://langchain-ai.github.io/langgraph/)
 [![MCP](https://img.shields.io/badge/MCP-2.x-purple.svg)](https://modelcontextprotocol.io/)
+[![No API key needed](https://img.shields.io/badge/API%20key-none-success.svg)](#quick-start)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
+---
+
+## At a glance
+
+| | |
+|---|---|
+| **Who this is for** | Engineers moving past "the agent demos well" toward agents that can be **evaluated, versioned and trusted**. |
+| **What you can copy** | A stateful LangGraph graph, an MCP server with dual transports, a Skill specification, an SDD acceptance-criteria walkthrough, and a gated self-improvement loop. |
+| **Time to first run** | About two minutes: `pip install -r requirements.txt`, then run any script below. No credentials. |
+| **The one idea** | **Allow evolution, forbid silent regression** — every self-modification has to pass an admission gate first. |
+
+## Contents
+
+- [Why this repository exists](#why-this-repository-exists)
+- [The five projects](#the-five-projects)
+- [Project 05 — the one that ties them together](#project-05--the-one-that-ties-them-together)
+- [Quick start](#quick-start)
+- [Project layout](#project-layout)
+- [Why a QC-attribution scenario](#why-a-qc-attribution-scenario)
+- [Scope and limitations](#scope-and-limitations)
+- [Roadmap & contributing](#roadmap--contributing)
+- [License](#license)
 
 ---
 
@@ -113,6 +141,12 @@ python 05-self-evolving-qc-agent/evolve.py --regression-budget 20   # relax and 
 
 ```
 .
+├── README.md                       # English landing page (this file)
+├── CONTRIBUTING.md                 # how to propose a change
+├── CHANGELOG.md                    # dated log of each increment
+├── LICENSE
+├── requirements.txt
+├── .github/workflows/ci.yml         # offline smoke test on every push / PR
 ├── 01-langgraph-agent/
 │   └── agent.py                    # stateful agent: reducer-merged state, conditional edges, checkpoint resume
 ├── 02-mcp-server/
@@ -127,10 +161,9 @@ python 05-self-evolving-qc-agent/evolve.py --regression-budget 20   # relax and 
 │   ├── config/skills/.../SKILL.md  # versioned skill under management
 │   ├── data/                       # corrections + three-way split evaluation set
 │   └── logs/                       # full audit trail of every proposal and verdict
-├── docs/
-│   ├── README.zh-CN.md             # 中文版说明
-│   ├── environment-setup.md        # 环境搭建与踩坑记录
-└── requirements.txt
+└── docs/
+    ├── README.zh-CN.md             # 中文版说明
+    └── environment-setup.md        # 环境搭建与踩坑记录
 ```
 
 ---
@@ -171,6 +204,22 @@ Limitations:
 - The evaluation set is synthetic, self-built and small (88 samples); scoring is deterministic.
   The result demonstrates that the gate rejects a regressing change, not a general improvement in
   model accuracy.
+
+---
+
+## Roadmap & contributing
+
+Next increments we would like to add — PRs welcome, see [CONTRIBUTING.md](CONTRIBUTING.md):
+
+- [ ] A real LLM-backed adapter behind the same admission gate, so the deterministic mock can be compared against a live model
+- [ ] CI matrix across Python 3.11 / 3.12 / 3.13
+- [ ] A second gate dimension: cost and latency budget alongside the quality budget
+- [ ] Larger evaluation sets with documented provenance
+- [ ] A short architecture diagram for the four-stage loop
+
+Each dated change is recorded in [CHANGELOG.md](CHANGELOG.md).
+
+If this repository saved you design time, **a star is the cheapest way to say so** — it also helps other engineers find the regression-budget pattern. Found a flaw in the gate? Please open an issue instead: a concrete counter-example is worth more than a star.
 
 ---
 
