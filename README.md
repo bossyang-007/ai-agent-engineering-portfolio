@@ -114,6 +114,28 @@ accumulated counter-examples are the most expensive content to reconstruct.
 Verified: the skill goes from **108 lines to 112 lines**, four anchors each gaining one line,
 with every existing paragraph preserved byte-for-byte.
 
+### Verify the gate yourself (runnable evidence)
+
+The four checks above are not just described — they are **executable evidence**. `verify_gate.py`
+recomputes the baseline and candidate scores from the committed `data/eval_set.json` (88 samples)
+using the very same `gate.py` functions as `evolve.py`, then asserts that:
+
+- the default 3.0pp regression budget **rejects** the candidate for exactly one reason;
+- relaxing the budget to 20pp lets the **same** candidate **pass**;
+- each of the four checks can be made to fail **on its own**, and every single one rejects the change.
+
+It uses only the standard library, runs offline, and is read-only — it never touches the versioned
+skill or the logs, so running it cannot dirty your working tree. Run it and read the verdict per
+scenario:
+
+```bash
+python 05-self-evolving-qc-agent/verify_gate.py
+# OK: 27/27 assertions passed.
+```
+
+Any broken assertion makes the script exit non-zero, and CI runs it on every push — so the
+"allow evolution, forbid silent regression" claim cannot silently rot.
+
 ---
 
 ## Quick start
@@ -133,6 +155,9 @@ python 02-mcp-server/server.py --http       # Streamable HTTP transport
 python 05-self-evolving-qc-agent/evolve.py
 python 05-self-evolving-qc-agent/evolve.py --dry-run
 python 05-self-evolving-qc-agent/evolve.py --regression-budget 20   # relax and let it ship
+
+# 05 — reproduce the four gate checks as executable evidence (offline, read-only)
+python 05-self-evolving-qc-agent/verify_gate.py
 ```
 
 ---
@@ -158,6 +183,7 @@ python 05-self-evolving-qc-agent/evolve.py --regression-budget 20   # relax and 
 ├── 05-self-evolving-qc-agent/
 │   ├── evolve.py                   # four-stage loop: collect → propose → gate → release
 │   ├── gate.py                     # admission gate: regression budget + target-subset scoring
+│   ├── verify_gate.py              # runnable evidence: recomputes & asserts all four gate checks
 │   ├── config/skills/.../SKILL.md  # versioned skill under management
 │   ├── data/                       # corrections + three-way split evaluation set
 │   └── logs/                       # full audit trail of every proposal and verdict
@@ -211,6 +237,7 @@ Limitations:
 
 Next increments we would like to add — PRs welcome, see [CONTRIBUTING.md](CONTRIBUTING.md):
 
+- [x] Reproducible, executable evidence for the four gate checks — added as [`verify_gate.py`](05-self-evolving-qc-agent/verify_gate.py), run on every push; see [Verify the gate yourself](#verify-the-gate-yourself-runnable-evidence)
 - [ ] A real LLM-backed adapter behind the same admission gate, so the deterministic mock can be compared against a live model
 - [ ] CI matrix across Python 3.11 / 3.12 / 3.13
 - [ ] A second gate dimension: cost and latency budget alongside the quality budget

@@ -130,6 +130,7 @@ Agent 生成的 Skill 草案**天然是不可信的**——它可能是对的，
 ├── README.md                    ← 本文件
 ├── evolve.py                    ← 主程序：闭环四步全流程
 ├── gate.py                      ← 评测门禁：回归预算 + 目标子集判定
+├── verify_gate.py               ← 可运行证据：重算并断言四项门禁检查（离线、只读）
 ├── config/
 │   └── skills/
 │       └── complaint-badcase-attribution/
@@ -150,7 +151,13 @@ Agent 生成的 Skill 草案**天然是不可信的**——它可能是对的，
 python evolve.py                     # 跑一次完整闭环（采集→提案→门禁→发布）
 python evolve.py --dry-run           # 只提案，不发布（模拟评审中）
 python evolve.py --eval-only         # 跳过提案，直接对当前 Skill 跑门禁
+python verify_gate.py                # 重算并断言四项门禁检查（27 条断言，离线、只读）
 ```
+
+`verify_gate.py` 是「四项独立检查、任一不过即拒绝」这条设计结论的可运行证据：它只依赖
+标准库，从 `data/eval_set.json` 实时复算分数，验证默认预算拒绝、放宽预算后同一候选通过，
+以及四项检查各自单独触发失败。CI 每次推送都会运行它，任一断言失败即以非零码退出。
+它不会改动受版本管理的 Skill，也不会写 `logs/`。
 
 **输出示例**：
 

@@ -21,9 +21,10 @@ python 02-mcp-server/server.py
 python 05-self-evolving-qc-agent/evolve.py
 python 05-self-evolving-qc-agent/evolve.py --dry-run
 python 05-self-evolving-qc-agent/evolve.py --regression-budget 20
+python 05-self-evolving-qc-agent/verify_gate.py
 ```
 
-The last command deliberately relaxes the regression budget so you can watch a candidate ship. CI runs the same set on Python 3.11 — see `.github/workflows/ci.yml`.
+The `--regression-budget 20` command deliberately relaxes the regression budget so you can watch a candidate ship. `verify_gate.py` reproduces the four gate checks as executable, asserted evidence (offline, read-only, standard library only). CI runs the same set on Python 3.11 — see `.github/workflows/ci.yml`.
 
 ## Proposing a change
 

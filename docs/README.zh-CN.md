@@ -71,6 +71,27 @@ Pitfalls 段对提案方只读：积累的反例是最难重建的内容。
 实测：Skill 从 **108 行变成 112 行**，四个锚点各加一行，原有段落逐字未动。
 这条断言已写进 CI 流水线，每次推送自动校验。
 
+### 亲自验证门禁（可运行证据）
+
+上面四项检查不只是文字描述，而是**可执行的证据**。`verify_gate.py` 用与 `evolve.py`
+完全相同的 `gate.py` 函数，从仓库内已提交的 `data/eval_set.json`（88 条样本）重新计算
+基线版与候选版的分数，然后断言：
+
+- 默认 3.0pp 回归预算会以**恰好一条**理由**拒绝**候选版；
+- 把预算放宽到 20pp 后，**同一个**候选版会**通过**；
+- 四项检查中的任意一项都能被**单独**触发失败，且每一条失败都会拒绝这次改动。
+
+它只依赖标准库、纯离线、只读——不会改动受版本管理的 Skill，也不会写 `logs/`，
+因此运行它不会弄脏工作区。运行后可直接看到每个场景的判定：
+
+```bash
+python 05-self-evolving-qc-agent/verify_gate.py
+# OK: 27/27 assertions passed.
+```
+
+任何一条断言不成立，脚本即以非零码退出；CI 每次推送也会运行它——
+「允许进化，不允许悄悄退化」这句话因此不会随代码演进而悄悄失效。
+
 ---
 
 ## 快速运行
@@ -83,6 +104,7 @@ python 02-mcp-server/server.py                        # 02 stdio 传输
 python 02-mcp-server/server.py --http                 # 02 Streamable HTTP 传输
 python 05-self-evolving-qc-agent/evolve.py            # 05 完整闭环（离线确定性运行）
 python 05-self-evolving-qc-agent/evolve.py --dry-run  # 只提案不发布
+python 05-self-evolving-qc-agent/verify_gate.py       # 05 四项门禁检查的可运行证据（离线、只读）
 ```
 
 ---
@@ -128,6 +150,7 @@ python 05-self-evolving-qc-agent/evolve.py --dry-run  # 只提案不发布
 ├── 05-self-evolving-qc-agent/
 │   ├── evolve.py                           # 四步闭环主程序
 │   ├── gate.py                             # 评测门禁：回归预算 + 目标子集判定
+│   ├── verify_gate.py                      # 可运行证据：重算并断言四项门禁检查
 │   ├── config/skills/.../SKILL.md          # 被版本化管理的 Skill
 │   ├── data/                               # 纠正记录 + 三路划分评测集
 │   └── logs/                               # 每次提案与判定的完整留痕
